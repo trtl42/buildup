@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        .pots{
+            border-left: solid 1px black;
+            border-right: solid 1px black;
+            border-bottom: solid 1px black;
+            margin-right: 5px;
+            float:left;
+            width:139px;
+            height:250px;
+            padding:10px;
+        }
+        .pot{
+            float:left;
+            width:100%;
+            text-align:center;
+            font-size:20px;
+        }
+        p{
+            margin:0px;
+            text-align:center;
+        }
+        button{
+            border: 0;
+            background-color: transparent;
+            height:25px;
+            font-size:16px;
+        }
+    </style>
+    <script>
+        function clickEvnt(a){
+            console.log(a);
+            if(document.getElementById(a).style.display == ''){
+                document.getElementById(a).style.display = 'none';
+            }else{
+                document.getElementById(a).style.display = '';
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div style="width:1000px; padding:10px;">
+        <div style="text-align:left;">
+            <button type="button" onclick="location.href='http://localhost:8000/gst/';">뒤로</button>
+        </div>
+        <div style="width:100%; text-align:center; font-size:40px; margin-bottom: 20px;">포트</div>
+        <div class="pots">
+            <div class="pot">1 포트</div><br/>
+            {% if pot1 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot1 %}
+                    <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pots">
+            <div class="pot">2 포트</div>
+            {% if pot2 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot2 %}
+                        <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pots">
+            <div class="pot">3 포트</div>
+            {% if pot3 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot3 %}
+                        <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pots">
+            <div class="pot">4 포트</div>
+            {% if pot4 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot4 %}
+                        <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pots">
+            <div class="pot">5 포트</div>
+            {% if pot5 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot5 %}
+                        <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="pots">
+            <div class="pot">6 포트</div>
+            {% if pot6 %}
+                <div style="float:left; width:100%; text-align:center;"><br/>
+                    {% for pot in pot6 %}
+                        <button type="button" onclick="clickEvnt('{{pot.id}}')">{{ pot.name }}</button><br/>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div id="teams" style="float:left; width: 100%; height:auto; padding:10px;">
+            <div id="team1" style="float:left; width:46%; height: 130px; border: 1px solid black; margin-right:5px; padding:10px;">
+                <div class="pot">1팀</div>
+                    {% if team1 %}
+                        <div style="float:left; width:50%;">
+                        {% for member in team1 %}
+                            {% if forloop.counter < 5 %}
+                                <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <div style="float:left; width:50%;">
+                        {% for member in team1 %}
+                            {% if forloop.counter > 4 %}
+                                <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+            </div>
+            <div id="team2" style="float:left; width:46%; height: 130px; border: 1px solid black; margin-bottom:5px; padding:10px;">
+                <div class="pot">2팀</div>
+                {% if team2 %}
+                    <div style="float:left; width:50%;">
+                    {% for member in team2 %}
+                        {% if forloop.counter < 5 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div style="float:left; width:50%;">
+                    {% for member in team2 %}
+                        {% if forloop.counter > 4 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div id="team3" style="float:left; width:46%; height: 130px; border: 1px solid black; margin-right:5px; padding:10px;">
+                <div class="pot">3팀</div>
+                {% if team3 %}
+                    <div style="float:left; width:50%;">
+                    {% for member in team3 %}
+                        {% if forloop.counter < 5 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div style="float:left; width:50%;">
+                    {% for member in team3 %}
+                        {% if forloop.counter > 4 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div id="team4" style="float:left; width:46%; height: 130px; border: 1px solid black; margin-bottom:5px; padding:10px;">
+                <div class="pot">4팀</div>
+                {% if team4 %}
+                    <div style="float:left; width:50%;">
+                    {% for member in team4 %}
+                        {% if forloop.counter < 5 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div style="float:left; width:50%;">
+                    {% for member in team4 %}
+                        {% if forloop.counter > 4 %}
+                            <p id="{{member.id}}" style="display:none;">{{ member.name }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

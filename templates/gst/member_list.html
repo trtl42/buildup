@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>GST</title>
+        <style>
+            html {
+                display: table;
+                margin: auto;
+            }
+            .name{
+                //position: relative;
+                //margin: -25px 0 0 -25px;
+                top: 50%;
+                left: 50%;
+                padding-top:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width:1000px; padding:10px;">
+            <div id="candidates_list" style="border: 1px solid black; padding:10px; margin-bottom:10px;">
+                <div style="width:100%; text-align:center; padding:20px; font-size:25px;">후보자 명단</div>
+                <div id="candidates1" style="float:left; padding:10px; margin-top:15px;">
+                    {%if member_list %}
+                        {% for member in member_list %}
+                            <div style="float:left; width:24%; height:80px; border: 1px solid black; text-align:center; margin:1px; position: relative;">
+                                <p class="name">{{ member.name }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div style="text-align:right;">
+                <button type="button" onclick="location.href='http://localhost:8000/gst/pots';">포트</button>
+            </div>
+        </div>
+
+    </body>
+</html>

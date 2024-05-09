@@ -84,11 +84,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'buildup',
-        'USER': 'buildup',
-        'PASSWORD': 'buildup',
-        'HOST': 'raspicloud.iptime.org',
-        'PORT': '33506'
     }
 }
 
